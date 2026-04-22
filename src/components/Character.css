@@ -1,0 +1,53 @@
+.char-img-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  perspective: 800px;
+}
+
+.char-img-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,192,0.12) 0%, transparent 68%);
+  animation: charGlow 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes charGlow {
+  0%,100% { transform: translateX(-50%) scale(1);   opacity: 0.7; }
+  50%      { transform: translateX(-50%) scale(1.1); opacity: 1;   }
+}
+
+.char-img {
+  position: relative;
+  z-index: 2;
+  width: 420px;
+  max-width: 90vw;
+  height: auto;
+  object-fit: contain;
+  /* remove white background from the image */
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
+  transform-style: preserve-3d;
+  transition: filter 0.3s ease;
+  animation: charFloat 6s ease-in-out infinite;
+  will-change: transform;
+  /* Remove white bg if image has it */
+  border-radius: 0;
+}
+
+@keyframes charFloat {
+  0%,100% { margin-bottom: 0px;  }
+  50%      { margin-bottom: 14px; }
+}
+
+@media (max-width: 768px) {
+  .char-img { width: 280px; }
+}

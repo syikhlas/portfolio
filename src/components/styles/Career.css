@@ -1,0 +1,64 @@
+.career-section { padding: 8rem 3.5rem; }
+.career-container h2 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 4rem;
+}
+.career-container h2 span { color: #00e5c0; }
+.career-info { display: flex; gap: 2rem; align-items: flex-start; }
+
+/* Vertical teal line */
+.career-timeline {
+  position: relative; flex-shrink: 0;
+  width: 2px; align-self: stretch; min-height: 200px;
+}
+.career-timeline-line {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, #00e5c0, transparent);
+  transform-origin: top; /* GSAP animates scaleY */
+}
+.career-dot {
+  position: absolute; bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #00e5c0;
+  box-shadow: 0 0 12px rgba(0,229,192,0.8), 0 0 24px rgba(0,229,192,0.4);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%,100% { box-shadow: 0 0 12px rgba(0,229,192,0.8), 0 0 24px rgba(0,229,192,0.4); }
+  50%     { box-shadow: 0 0 20px rgba(0,229,192,1),   0 0 40px rgba(0,229,192,0.6); }
+}
+.career-items { flex: 1; display: flex; flex-direction: column; gap: 3rem; }
+.career-info-box { opacity: 0; } /* animated by initialFX */
+.career-info-in {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 1.5rem; margin-bottom: 1rem;
+}
+.career-role h4 {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.2rem;
+}
+.career-role h5 {
+  color: #00e5c0; font-size: 0.9rem; margin-top: 0.2rem; font-weight: 500;
+}
+.career-info-in h3 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: #4a4a6a; opacity: 0.4; line-height: 1; flex-shrink: 0;
+}
+.career-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.career-bullets li {
+  font-size: 0.88rem; color: #4a4a6a;
+  padding-left: 1.1rem; position: relative; line-height: 1.7;
+}
+.career-bullets li::before {
+  content: '▸'; position: absolute; left: 0;
+  color: #00e5c0; font-size: 0.65rem; top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .career-section { padding: 6rem 1.5rem; }
+  .career-info { flex-direction: column; }
+  .career-timeline { width: 100%; height: 2px; min-height: unset; align-self: auto; }
+  .career-info-in h3 { font-size: 2rem; }
+}

@@ -1,0 +1,53 @@
+.char-3d-wrap {
+  position: relative;
+  width: 420px;
+  max-width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  animation: avatarFloat 6s ease-in-out infinite;
+}
+
+@keyframes avatarFloat {
+  0%,100% { transform: translateY(0px);   }
+  50%      { transform: translateY(-14px); }
+}
+
+.char-3d-glow {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,192,0.12) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.char-3d-body {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 55px rgba(0,0,0,0.6));
+  pointer-events: none;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* ground shadow */
+.char-3d-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 50%;
+  transform: translateX(-50%);
+  width: 50%; height: 16px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .char-3d-wrap { width: 260px; }
+}

@@ -1,0 +1,63 @@
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 1.6rem 3.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(7,7,18,0.95) 0%, transparent 100%);
+  opacity: 0; /* animated in by initialFX */
+}
+.navbar-title {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 1.1rem; color: #f0f0f5; letter-spacing: -0.02em;
+  cursor: none;
+}
+.navbar-connect {
+  font-size: 0.75rem; color: #4a4a6a;
+  letter-spacing: 0.06em; cursor: none;
+  transition: color 0.2s;
+}
+.navbar-connect:hover { color: #00e5c0; }
+.header ul {
+  display: flex; gap: 2.5rem; list-style: none;
+}
+.header ul li {
+  letter-spacing: 0.12em; color: #ccc;
+  font-weight: 600; cursor: none;
+}
+.header ul a {
+  font-size: 0.8rem; color: #4a4a6a;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  transition: color 0.2s;
+}
+.header ul a:hover { color: #f0f0f5; }
+.hover-link { position: relative; }
+.hover-link::after {
+  content: ''; position: absolute; bottom: -2px; left: 0;
+  width: 0; height: 1px; background: #00e5c0;
+  transition: width 0.25s ease;
+}
+.hover-link:hover::after { width: 100%; }
+
+/* ambient bg circles */
+.landing-circle1 {
+  position: fixed; top: 10%; left: -10%;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,192,0.04) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+.landing-circle2 {
+  position: fixed; top: 30%; right: -8%;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,192,0.08) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+.nav-fade {
+  position: fixed; bottom: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(to top, rgba(7,7,18,0.9), transparent);
+  pointer-events: none; z-index: 50; opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .header { padding: 1.2rem 1.5rem; }
+  .navbar-connect { display: none; }
+  .header ul { gap: 1.2rem; }
+}
