@@ -1,7 +1,7 @@
 .contact-section { padding: 8rem 3.5rem 6rem; }
 .contact-title {
   font-family: 'Syne', sans-serif; font-weight: 800;
-  font-size: clamp(3rem, 10vw, 11rem);
+  ffont-size: clamp(2rem, 8vw, 11rem);
   letter-spacing: -0.05em; line-height: 0.88;
   margin-bottom: 5rem; color: #f0f0f5;
   overflow: hidden;
@@ -42,7 +42,7 @@
 @media (max-width: 900px) {
   .contact-section { padding: 5rem 1.5rem 4rem; }
   .contact-title {
-    font-size: clamp(2.8rem, 14vw, 6rem);
+    font-size: clamp(2rem, 8vw, 4rem);
     margin-bottom: 3rem;
     word-break: normal;
     overflow: visible;
