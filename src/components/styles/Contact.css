@@ -31,21 +31,26 @@
 .contact-footer-note { font-size: 0.78rem; color: #4a4a6a; letter-spacing: 0.06em; }
 .contact-footer-note span { color: #00e5c0; }
 
-/* ── PHONE ONLY (max 480px) ── */
+/* ── TABLET ── */
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-section { padding: 6rem 1.5rem 4rem; }
+}
+
+/* ── PHONE — title fits by using vw units ── */
 @media (max-width: 480px) {
   .contact-section { padding: 4rem 1.2rem 3rem; }
+  /* 
+    CONTACT = 7 chars
+    At font-size X, width ≈ X * 7 * 0.65 (Syne char width ratio)
+    Phone width ~380px → X = 380 / (7 * 0.65) ≈ 83px max
+    Using 11vw on 380px phone = 41.8px — safe
+  */
   .contact-title {
-    font-size: clamp(2.8rem, 16vw, 4.5rem);
-    margin-bottom: 2.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    font-size: 11vw;
+    letter-spacing: -0.03em;
     margin-bottom: 2rem;
   }
   .contact-info { font-size: 0.88rem; word-break: break-word; }
-  .social-list a { font-size: 0.92rem; }
+  .social-list a { font-size: 0.9rem; }
 }
