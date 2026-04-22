@@ -11,7 +11,7 @@ export const LoadingContext = createContext<LoadingType | null>(null);
 
 export const LoadingProvider = ({ children }: PropsWithChildren) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [, setLoading] = useState(0); // kept for API compat
+  const [, setLoading] = useState(0);
 
   const value = { isLoading, setIsLoading, setLoading };
 
